@@ -21,6 +21,7 @@ public class App { //一个私有的App方法
             {720,480},
     };
     public App()  {//这个是App方法体
+         myPanel.setCursor(Toolkit.getDefaultToolkit().createCustomCursor(Toolkit.getDefaultToolkit().getImage("src/com/pnb/cz.gif"), new Point(),"self"));//添加锤子
         label_img.addMouseListener(new MouseAdapter() {//提交按钮事件监听
             @Override
             public void mouseClicked(MouseEvent e) {
