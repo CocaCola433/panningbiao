@@ -34,7 +34,7 @@ public class App {
                     score=score1+score2+score3;
                     label_score.setText("分数："+String.valueOf(score));
                 }
-                if((e.getX()>=507&&e.getX()<=509)&&(e.getY()>504&&e.getY()<523)){
+                if((e.getX()>=507&&e.getX()<=509)&&(e.getY()>=504&&e.getY()<=523)){
                     score3=1;
                     score=score1+score2+score3;
                     label_score.setText("分数："+String.valueOf(score));
