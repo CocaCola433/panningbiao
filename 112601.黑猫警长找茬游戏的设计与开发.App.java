@@ -23,7 +23,7 @@ public class App {
                 super.mouseClicked(e);
 		//输出坐标
                 System.out.printf(e.getX()+","+e.getY()+"\n");
-		//判断三个不同地方的坐标
+		//判断三个点不同地方的坐标,获取x和y的范围
                 if((e.getX()>=4&&e.getX()<=31)&&(e.getY()>=722&&e.getY()<=738)){
                     score1=1;
                     score=score1+score2+score3;
@@ -38,6 +38,11 @@ public class App {
                     score3=1;
                     score=score1+score2+score3;
                     label_score.setText("分数："+String.valueOf(score));
+                }
+		 //满3分时，显示弹窗
+                if(score==3){
+                  JOptionPane.showMessageDialog(myPanel,"恭喜通关！你太棒了！");
+
                 }
 
             }
