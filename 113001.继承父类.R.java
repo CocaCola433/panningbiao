@@ -1,9 +1,9 @@
 
-public class App extends R{
+public class R {
+	
+	String boy_filePath="img/boy.gif";
+	String girl_filePath="img/girl.gif";
+	int [ ][ ]array2d={{1,2,3},{4,5,6}};
 
-	public static void main(String[] args) {
-		System.out.println(boy_filePath);
-		System.out.println(girl_filePath);
-		System.out.println(array2d);
-	}
+
 }
