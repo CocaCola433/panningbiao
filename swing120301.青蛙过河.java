@@ -14,21 +14,10 @@ public class App {
     JLabel label_frog3=new JLabel();
     JTextArea textArea_input=new JTextArea();
     private JLabel label_score=new JLabel();
-    int column,row;
-    int CELL=64;
     int score;
+    int witch_frog=0;
     //构造方法
     public App() {
-        myPanel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                //输出坐标
-                System.out.printf("x坐标："+e.getX() + "," +"Y坐标为："+e.getY() + "\n");
-            }
-        });
-
-
 
         myPanel.addKeyListener(new KeyAdapter() {
 
@@ -38,19 +27,76 @@ public class App {
 
                 textArea_input.append(String.valueOf(e.getKeyChar()));
 
-                if (textArea_input.getText().equals("hello")){
-                    label_frog1.setBounds(330,250,128,128);
+                //第一只青蛙
+                if (label_frog1.getX()==100 && label_frog1.getY()==430 && textArea_input.getText().equals("hello")){
+                    label_frog1.setBounds(370,256,128,128);
+                    textArea_input.setText("");
+                    score++;
+                    label_score.setText("得分:"+score);
+                }
+                if (label_frog1.getX()==370 && label_frog1.getY()==256 && textArea_input.getText().equals("world")){
+                    label_frog1.setBounds(270,125,128,128);
+                    textArea_input.setText("");
+                    score++;
+                    label_score.setText("得分:"+score);
+                }
+                if (label_frog1.getX()==270 && label_frog1.getY()==125 && textArea_input.getText().equals("hi")){
+                    label_frog1.setBounds(720,30,128,128);
+                    textArea_input.setText("");
+                    score++;
+                    label_score.setText("得分:"+score);
+                    witch_frog=2;
                 }
 
-                if (textArea_input.getText().equals("hello2")){
-                    label_frog2.setBounds(415,250,128,128);
+                //第二只青蛙
+                if (witch_frog==2){
+                    if (label_frog1.getX()==720 && label_frog1.getY()==30 && textArea_input.getText().equals("hello")){
+                        label_frog2.setBounds(370,256,128,128);
+                        textArea_input.setText("");
+                        score++;
+                        label_score.setText("得分:"+score);
+                    }
+                    if (label_frog2.getX()==370 && label_frog2.getY()==256 && textArea_input.getText().equals("world")){
+                        label_frog2.setBounds(270,125,128,128);
+                        textArea_input.setText("");
+                        score++;
+                        label_score.setText("得分:"+score);
+                    }
+                    if (label_frog2.getX()==270 && label_frog2.getY()==125 && textArea_input.getText().equals("hi")){
+                        label_frog2.setBounds(888,30,128,128);
+                        textArea_input.setText("");
+                        score++;
+                        label_score.setText("得分:"+score);
+                        witch_frog=3;
+                    }
+
                 }
 
-                if (textArea_input.getText().equals("hello3")){
-                    label_frog3.setBounds(500,250,128,128);
+                //第三只青蛙
+                if (witch_frog==3){
+                    if (label_frog2.getX()==888 && label_frog2.getY()==30 && textArea_input.getText().equals("hello")){
+                        label_frog3.setBounds(370,256,128,128);
+                        textArea_input.setText("");
+                        score++;
+                        label_score.setText("得分:"+score);
+                    }
+                    if (label_frog3.getX()==370 && label_frog3.getY()==256 && textArea_input.getText().equals("world")){
+                        label_frog3.setBounds(270,125,128,128);
+                        textArea_input.setText("");
+                        score++;
+                        label_score.setText("得分:"+score);
+                    }
+                    if (label_frog3.getX()==270 && label_frog3.getY()==125 && textArea_input.getText().equals("hi")){
+                        label_frog3.setBounds(620,30,128,128);
+                        textArea_input.setText("");
+                        score++;
+                        label_score.setText("得分:"+score);
+                        JOptionPane.showMessageDialog(myPanel,"恭喜你脱单了！！！");
+                        //关闭所有窗口
+                        System.exit(0);
+
+                    }
                 }
-
-
 
             }
         });
@@ -58,24 +104,22 @@ public class App {
     }
     //显示窗体方法
     void go(){
-        JFrame frame = new JFrame("青蛙大战");
+        JFrame frame = new JFrame("青蛙过河");
 
-        //青蛙图片
+        //青蛙1图片
         java.net.URL imgURL1= App.class.getResource("img/frog.png");
         label_frog1.setIcon(new ImageIcon(imgURL1));
         label_frog1.setBounds(100,430,128,128);
 
-        //青蛙图片
+        //青蛙2图片
         java.net.URL imgURL2= App.class.getResource("img/frog.png");
         label_frog2.setIcon(new ImageIcon(imgURL2));
         label_frog2.setBounds(200,430,128,128);
 
-
-        //青蛙图片
+        //青蛙3图片
         java.net.URL imgURL3= App.class.getResource("img/frog.png");
         label_frog3.setIcon(new ImageIcon(imgURL3));
         label_frog3.setBounds(300,430,128,128);
-
 
         //背景图片
         java.net.URL imgURL4= App.class.getResource("img/background.png");
@@ -87,14 +131,14 @@ public class App {
         //设置分数显示距屏幕坐标50，20，宽100，高100
         label_score.setBounds(150,0,100,100);
         //设置分数显示的颜色
-        label_score.setForeground(Color.green);
+        label_score.setForeground(Color.blue);
         //设置分数的字体和大小
         label_score.setFont(new Font("serif",Font.PLAIN,20));
 
         //设置输入框大小
-       textArea_input.setBounds(0,0,100,20);
-       //隐藏输入框
-       textArea_input.setVisible(false);
+        textArea_input.setBounds(0,0,100,20);
+        //隐藏输入框
+        textArea_input.setVisible(false);
 
 
         myPanel.add(label_score);
