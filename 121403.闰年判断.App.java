@@ -22,8 +22,8 @@ public class App {
                     System.out.println(str+year2+str2);
                 }
             }else {
-                str="公元后";
-                if(year%4==0&&year%100!=0) {
+                str="公元";
+                if(year%4==0&&year%100!=0||year%400==0) {
                     str2="是闰年";
                     System.out.println(str+year+str2);
                 }else {
